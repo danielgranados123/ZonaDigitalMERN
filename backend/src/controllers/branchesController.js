@@ -11,15 +11,15 @@ branchesController.getBranches = async (req, res) => {
 // INSERT
 branchesController.createBranches = async (req, res) => {
     const { name, address, telephone, schedule } = req.body;
-    const newClient = new branchesModel({ name, address, telephone, schedule });
-    await newClient.save()
-    res.json({ message: "Branches saved"})
+    const newBranch = new branchesModel({ name, address, telephone, schedule });
+    await newBranch.save()
+    res.json({ message: "Branch saved"})
 };
 
 // DELETE
 branchesController.deleteBranches = async (req, res) => {
     await branchesModel.findOneAndDelete(req.params.id)
-    res.json({ message: "Branches deleted"})
+    res.json({ message: "Branch deleted"})
 };
 
 // UPDATE
@@ -34,7 +34,7 @@ branchesController.updateBranches = async (req, res) => {
     }, {new: true}
     );
 
-    res.json({ message: "Branches updated"})
+    res.json({ message: "Branch updated"})
 };
 
 export default branchesController;

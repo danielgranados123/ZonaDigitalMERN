@@ -11,8 +11,8 @@ employeesController.getEmployees = async (req, res) => {
 // INSERT
 employeesController.createEmployees = async (req, res) => {
     const { name, lastName, birthday, email, address, hireDate, password, telephone, dui, isssNumber, isVerified } = req.body;
-    const newClient = new employeesModel({ name, lastName, birthday, email, address, hireDate, password, telephone, dui, isssNumber, isVerified });
-    await newClient.save()
+    const newEmployee = new employeesModel({ name, lastName, birthday, email, address, hireDate, password, telephone, dui, isssNumber, isVerified });
+    await newEmployee.save()
     res.json({ message: "Employee saved"})
 };
 
