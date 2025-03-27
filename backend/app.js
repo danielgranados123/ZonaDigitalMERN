@@ -5,6 +5,8 @@ import clientsRoutes from "./src/routes/clients.js"
 import employeesRoutes from "./src/routes/employees.js"
 import branchesRoutes from "./src/routes/branches.js"
 import reviewsRoutes from "./src/routes/reviews.js"
+import registerEmployeesRoutes from "./src/routers/registerEmployeeController.js"
+import cookieParser from "cookie-parser";
 
 
 // Creo una constante que es igual a la liberia que importé
@@ -12,6 +14,8 @@ const app = express();
 
 // Que acepte datos de json
 app.use(express.json());
+// Que postman acepte guardar cookies
+app.use(cookieParser());
 
 // Definir las rutas de las funciones que tendrà la pàgina web
 app.use("/api/products", productsRoutes)
@@ -19,6 +23,7 @@ app.use("/api/clients", clientsRoutes)
 app.use("/api/employees", employeesRoutes)
 app.use("/api/branches", branchesRoutes)
 app.use("/api/reviews", reviewsRoutes)
+app.use("/api/registerEmployees", registerEmployeesRoutes)
 
 // Exporto la constante para poder usar express en otros archivos
 export default app;
