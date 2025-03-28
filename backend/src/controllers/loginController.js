@@ -56,7 +56,7 @@ loginController.login = async(req, res)=> {
             {expiresIn: config.JWT.expiresIn},
             (error, token)=> {
                 if(error) console.log("error" + error)
-                res.cookie("authCookie", token)
+                res.cookie("authToken", token)
                 res.json({message: "Login succesful"})
             }
         )
