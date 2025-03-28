@@ -5,7 +5,8 @@ import clientsRoutes from "./src/routes/clients.js"
 import employeesRoutes from "./src/routes/employees.js"
 import branchesRoutes from "./src/routes/branches.js"
 import reviewsRoutes from "./src/routes/reviews.js"
-import registerEmployeesRoutes from "./src/routers/registerEmployeeController.js"
+import registerEmployeesRoutes from "./src/routes/registerEmployees.js"
+import loginRoutes from "./src/routes/login.js"
 import cookieParser from "cookie-parser";
 
 
@@ -24,6 +25,7 @@ app.use("/api/employees", employeesRoutes)
 app.use("/api/branches", branchesRoutes)
 app.use("/api/reviews", reviewsRoutes)
 app.use("/api/registerEmployees", registerEmployeesRoutes)
+app.use("/api/login", loginRoutes)
 
 // Exporto la constante para poder usar express en otros archivos
 export default app;

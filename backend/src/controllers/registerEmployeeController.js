@@ -38,7 +38,7 @@ registerEmployeesController.register = async(req, res)=> {
             birthday,
             email,
             address,
-            password,
+            password : passwordHash,
             hireDate,
             telephone,
             dui,
@@ -53,7 +53,7 @@ registerEmployeesController.register = async(req, res)=> {
             // 1- Qué voy a guardar
             {id: newEmployee._id},
             // 2 - secreto
-            config-JsonWebTokenError.secret,
+            config.JWT.secret,
             // 3- Cuándo expira
             {expiresIn: config.JWT.expiresIn},
             // 4- Función flecha
