@@ -11,7 +11,7 @@ import loginRoutes from "./src/routes/login.js"
 import logoutRoutes from "./src/routes/logout.js"
 import registerClients from "./src/routes/registerClients.js"
 import recoveryPasswordRoutes from "./src/routes/recoveryPassword.js"
-
+import providersRoutes from "./src/routes/providers.js"
 import cookieParser from "cookie-parser";
 
 
@@ -34,6 +34,8 @@ app.use("/api/registerEmployees", registerEmployeesRoutes)
 app.use("/api/registerClients", registerClients)
 app.use("/api/login", loginRoutes)
 app.use("/api/logout", logoutRoutes)
+
+app.use("/api/providers", providersRoutes)
 
 app.use("/api/recoveryPassword", recoveryPasswordRoutes)
 
