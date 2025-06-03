@@ -33,7 +33,7 @@ const clientSchema =  new Schema({
         type: String,
         require: true
     },
-    telephone: {
+    phone: {
         type: String,
         require: true
     },
@@ -42,8 +42,7 @@ const clientSchema =  new Schema({
         require: true
     },
     isVerified: {
-        type: Boolean,
-        require: true
+        type: Boolean
     },
 }, {
     timestamps: true,

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -6,13 +6,40 @@ const Navbar = () => {
       <div className="max-w-6xl mx-auto px-4 py-4 flex justify-center font-poppins">
         <ul className="flex space-x-8 text-gray-700 font-semibold text-lg">
           <li>
-            <Link to="/employees" className="hover:text-blue-600 transition duration-300">Employees</Link>
+            <NavLink
+              to="/employees"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-blue-600 transition duration-300"
+                  : "hover:text-blue-600 transition duration-300"
+              }
+            >
+              Empleados
+            </NavLink>
           </li>
           <li>
-            <Link to="/customers" className="hover:text-blue-600 transition duration-300">Customers</Link>
+            <NavLink
+              to="/customers"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-blue-600 transition duration-300"
+                  : "hover:text-blue-600 transition duration-300"
+              }
+            >
+              Clientes
+            </NavLink>
           </li>
           <li>
-            <Link to="/products" className="hover:text-blue-600 transition duration-300">Products</Link>
+            <NavLink
+              to="/products"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-blue-600 transition duration-300"
+                  : "hover:text-blue-600 transition duration-300"
+              }
+            >
+              Productos
+            </NavLink>
           </li>
         </ul>
       </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import CardEmployee from "./CardEmployees";
 
-const ListEmployees = ({
+const ListEmployee = ({
   deleteEmployee,
   updateEmployee,
   loading,
@@ -33,4 +33,4 @@ const ListEmployees = ({
   );
 };
 
-export default ListEmployees;
+export default ListEmployee;

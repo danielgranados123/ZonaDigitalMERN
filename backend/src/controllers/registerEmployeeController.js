@@ -15,7 +15,7 @@ registerEmployeesController.register = async(req, res)=> {
         address,
         password,
         hireDate,
-        telephone,
+        phone,
         dui,
         isVerified,
         isssNumber
@@ -40,7 +40,7 @@ registerEmployeesController.register = async(req, res)=> {
             address,
             password : passwordHash,
             hireDate,
-            telephone,
+            phone,
             dui,
             isVerified,
             isssNumber

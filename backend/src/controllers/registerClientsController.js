@@ -11,11 +11,11 @@ const registerClientsController = {};
 registerClientsController.registerClients = async (req, res) => {
     const {
         name, 
-        lastname, 
+        lastName, 
         birthday, 
         email, 
         password, 
-        telephone, 
+        phone, 
         dui,
         isVerified
     } = req.body;
@@ -29,11 +29,11 @@ registerClientsController.registerClients = async (req, res) => {
         const passwordHash = await bcryptjs.hash(password, 10)
         const newClient = new clientsModel({
             name, 
-            lastname, 
+            lastName, 
             birthday, 
             email, 
             password: passwordHash, 
-            telephone, 
+            phone, 
             dui: dui || null,
             isVerified: isVerified || false,
         })

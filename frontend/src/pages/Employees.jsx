@@ -7,7 +7,7 @@ import useDataEmployees from "../components/Employees/hooks/useDataEmployees.jsx
 const Employees = () => {
   // Cambiar el título de la pestaña al montar el componente
   useEffect(() => {
-    document.title = "Empleados";
+    document.title = "Empleados | Zona Digital";
   }, []);
 
   // Hook personalizado con toda la lógica del estado
