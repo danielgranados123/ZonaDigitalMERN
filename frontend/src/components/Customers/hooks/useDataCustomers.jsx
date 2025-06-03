@@ -129,7 +129,7 @@ const useDataCustomers = () => {
     toast.success('Cliente eliminado');
           fetchData();
         } catch (error) {
-          console.error("Error deleting employee sfs:", error);
+          console.error("Error deleting customer sfs:", error);
         }
       };
     
