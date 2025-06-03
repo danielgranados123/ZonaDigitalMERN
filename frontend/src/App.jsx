@@ -1,20 +1,15 @@
-import { useState } from 'react'
-import './App.css';
-import cors from "cors";
-
-app.use(
-  cors({
-    origin: "http://localhost:5173",
-    credentials: true
-  })
-);
+import React from "react";
+import {
+  BrowserRouter as Router
+} from "react-router-dom";
+import Navegation from "./components/Nav.jsx"; // Navegacion
 
 function App() {
   return (
-    <>
-      
-    </>
-  )
+      <Router>
+        <Navegation />
+      </Router>
+  );
 }
 
-export default App
+export default App;

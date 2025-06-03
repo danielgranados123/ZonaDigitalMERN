@@ -14,6 +14,8 @@ import recoveryPasswordRoutes from "./src/routes/recoveryPassword.js"
 import providersRoutes from "./src/routes/providers.js"
 import cookieParser from "cookie-parser";
 
+import cors from "cors";
+
 
 // Creo una constante que es igual a la liberia que importé
 const app = express();
@@ -23,19 +25,26 @@ app.use(express.json());
 // Que postman acepte guardar cookies
 app.use(cookieParser());
 
+app.use(
+  cors({
+    origin: "http://localhost:5173", // Dominio del cliente
+    credentials: true, // Permitir envío de cookies y credenciales
+  })
+);
+
 // Definir las rutas de las funciones que tendrà la pàgina web
-app.use("/api/products", validateAuthToken(["admin", "employee"]), productsRoutes)
+app.use("/api/products", productsRoutes)
 app.use("/api/clients", clientsRoutes)
 app.use("/api/employees", employeesRoutes)
 app.use("/api/branches", branchesRoutes)
 app.use("/api/reviews", reviewsRoutes)
 
-app.use("/api/registerEmployees", validateAuthToken(["admin"]), registerEmployeesRoutes)
+app.use("/api/registerEmployees", registerEmployeesRoutes)
 app.use("/api/registerClients", registerClients)
 app.use("/api/login", loginRoutes)
 app.use("/api/logout", logoutRoutes)
 
-app.use("/api/providers", validateAuthToken(["admin"]), providersRoutes)
+app.use("/api/providers", providersRoutes)
 
 app.use("/api/recoveryPassword", recoveryPasswordRoutes)
 

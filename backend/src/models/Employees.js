@@ -41,7 +41,7 @@ const employeeSchema =  new Schema({
         type: String,
         require: true
     },
-    telephone: {
+    phone: {
         type: String,
         require: true
     },
@@ -53,8 +53,7 @@ const employeeSchema =  new Schema({
         type: Number
     },
     isVerified: {
-        type: Boolean,
-        require: true
+        type: Boolean
     },
 }, {
     timestamps: true,
