@@ -14,6 +14,7 @@ import recoveryPasswordRoutes from "./src/routes/recoveryPassword.js"
 import providersRoutes from "./src/routes/providers.js"
 import faqsRoutes from "./src/routes/faqs.js"
 import cookieParser from "cookie-parser";
+import salesRoutes from "./src/routes/sales.js"
 
 import cors from "cors";
 
@@ -34,21 +35,23 @@ app.use(
 );
 
 // Definir las rutas de las funciones que tendrà la pàgina web
-app.use("/api/products", productsRoutes)
-app.use("/api/clients", clientsRoutes)
-app.use("/api/employees", employeesRoutes)
-app.use("/api/branches", branchesRoutes)
-app.use("/api/reviews", reviewsRoutes)
+app.use("/api/products", productsRoutes);
+app.use("/api/clients", clientsRoutes);
+app.use("/api/employees", employeesRoutes);
+app.use("/api/branches", branchesRoutes);
+app.use("/api/reviews", reviewsRoutes);
 
-app.use("/api/registerEmployees", registerEmployeesRoutes)
-app.use("/api/registerClients", registerClients)
-app.use("/api/login", loginRoutes)
-app.use("/api/logout", logoutRoutes)
+app.use("/api/registerEmployees", registerEmployeesRoutes);
+app.use("/api/registerClients", registerClients);
+app.use("/api/login", loginRoutes);
+app.use("/api/logout", logoutRoutes);
 
-app.use("/api/providers", providersRoutes)
-app.use("/api/faqs", faqsRoutes)
+app.use("/api/providers", providersRoutes);
+app.use("/api/faqs", faqsRoutes);
 
-app.use("/api/recoveryPassword", recoveryPasswordRoutes)
+app.use("/api/recoveryPassword", recoveryPasswordRoutes);
+
+app.use("/api/sales", salesRoutes);
 
 
 // Exporto la constante para poder usar express en otros archivos
