@@ -40,12 +40,38 @@ loginController.login = async(req, res)=> {
             return res.json({message: "User not found"})
         }
 
+        //
+        if(userType !== "admin"){
+            if(userFound.timeOut > Date.now()){
+                const minutosRestantes = Math.ceil((userFound.timeOut - Date.now)/60000);
+                res.status(403).json({message: "Cuenta bloqueada, faltan " + minutosRestantes})
+            }
+        }
+
         // Validar la contraseña (solo si no es admin)
         if(userType !== "admin"){
             const isMatch = await bcryptjs.compare(password, userFound.password)
             if(!isMatch){
+                userFound.loginAttempts = userFound.loginAttempts + 1;
+
+                if(userFound.loginAttempts >= 3){
+                    userFound.timeOut = Date.now() + 5 * 60 * 10000
+
+                    userFound.loginAttempts = 0;
+                    await userFound.save();
+
+                    return res.status(403).json({message: "Cuenta bloqueada"})
+                }
+
+                await userFound.save();
+                
+
                 return res.json({message: "Invalid password"})
             }
+            userFound.loginAttempts = 0;
+            userFound.timeOut = null
+
+            await userFound.save();
         }
 
         

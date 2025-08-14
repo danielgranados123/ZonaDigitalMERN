@@ -44,6 +44,14 @@ const clientSchema =  new Schema({
     isVerified: {
         type: Boolean
     },
+    loginAttempts: {
+        type: Number,
+        default: 0
+    },
+    timeOut: {
+        type: Date,
+        default: null
+    }
 }, {
     timestamps: true,
     strict: false
