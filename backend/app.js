@@ -17,6 +17,8 @@ import cookieParser from "cookie-parser";
 import salesRoutes from "./src/routes/sales.js"
 
 import cors from "cors";
+import limiter from "./src/middlewares/rateLimiter.js"
+
 
 
 // Creo una constante que es igual a la liberia que importé
@@ -26,6 +28,8 @@ const app = express();
 app.use(express.json());
 // Que postman acepte guardar cookies
 app.use(cookieParser());
+
+app.use(limiter); // Límite de peticiones al servidor
 
 app.use(
   cors({
